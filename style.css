@@ -1,0 +1,422 @@
+:root {
+    --bg-color: #050505;
+    --text-color: #ffffff;
+    --accent-color: #d4af37;
+    /* Gold */
+    --accent-glow: rgba(212, 175, 55, 0.3);
+    --secondary-bg: #111111;
+    --font-main: 'Outfit', sans-serif;
+    --font-jp: 'Zen Kaku Gothic New', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-jp);
+    overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-family: var(--font-main);
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.sub-title {
+    font-size: 1.2rem;
+    letter-spacing: 0.3em;
+    margin-bottom: 3rem;
+    color: #ccc;
+}
+
+.date-box {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 4rem;
+}
+
+.year {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.date {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--accent-color);
+}
+
+.day {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    border: 1px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+}
+
+.cta-button:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #000;
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.7;
+}
+
+.scroll-indicator span {
+    font-family: var(--font-main);
+    font-size: 0.7rem;
+    margin-bottom: 10px;
+    letter-spacing: 0.2em;
+}
+
+.scroll-indicator .line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, #fff, transparent);
+}
+
+/* Sections General */
+section {
+    padding: 100px 20px;
+    position: relative;
+    background-color: var(--bg-color);
+    /* Ensure sections cover video */
+    z-index: 1;
+}
+
+.section-title {
+    font-size: clamp(2rem, 5vw, 4rem);
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+/* Artists Section */
+.artists-section {
+    background-color: var(--secondary-bg);
+}
+
+.artist-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 50px;
+}
+
+.vs-badge {
+    font-family: var(--font-main);
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--accent-color);
+    text-align: center;
+    margin: 20px 0;
+    font-style: italic;
+    text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.artist-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    /* Remove underline for link */
+    color: var(--text-color);
+}
+
+.artist-image {
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%) contrast(120%);
+    transition: all 0.5s ease;
+}
+
+.artist-card:hover .artist-image {
+    filter: grayscale(0%) contrast(100%);
+}
+
+.artist-info {
+    padding: 20px;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1));
+    border-left: 3px solid var(--accent-color);
+    margin-top: -50px;
+    z-index: 2;
+    margin-left: 20px;
+    backdrop-filter: blur(5px);
+    width: fit-content;
+}
+
+.artist-info h3 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.artist-info p {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    letter-spacing: 0.2em;
+}
+
+@media (min-width: 768px) {
+    .artist-container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .artist-card {
+        width: 45%;
+    }
+
+    .vs-badge {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        font-size: 5rem;
+    }
+}
+
+/* Details Section */
+.details-section {
+    background-color: var(--bg-color);
+}
+
+.details-grid {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    gap: 2rem;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.detail-item:hover {
+    border-color: var(--accent-color);
+    background: rgba(212, 175, 55, 0.05);
+}
+
+.detail-item .label {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.detail-item .value {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Access Section */
+.access-section {
+    background-color: var(--secondary-bg);
+}
+
+.map-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.address {
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+}
+
+.map-link {
+    display: inline-block;
+    margin-top: 2rem;
+    color: var(--accent-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-color);
+    padding-bottom: 5px;
+}
+
+/* Ticket Section */
+.ticket-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('images/hero_bg.png');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 150px 20px;
+}
+
+.ticket-content h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.ticket-content p {
+    margin-bottom: 3rem;
+    font-size: 1.2rem;
+}
+
+.ticket-button {
+    display: inline-block;
+    padding: 1.5rem 4rem;
+    background: transparent;
+    border: 1px solid #555;
+    color: #888;
+    text-decoration: none;
+    font-size: 1.2rem;
+    cursor: not-allowed;
+}
+
+.ticket-button.disabled {
+    pointer-events: none;
+}
+
+/* Footer */
+footer {
+    padding: 50px 20px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #555;
+    background-color: #000;
+    z-index: 1;
+    position: relative;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-links a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    .date {
+        font-size: 3rem;
+    }
+
+    .artist-info {
+        margin-top: -30px;
+    }
+}

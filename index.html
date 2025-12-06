@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2MAN LIVE SHOW in OGIKUBO TOP BEAT CLUB | 2026.3.15</title>
+    <meta name="description" content="2026年3月15日 荻窪TOP BEAT CLUBにて開催されるマミヨバンドとYellow Studsの2MAN LIVE。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Placeholder for FontAwesome if needed, or use SVGs -->
+</head>
+
+<body>
+    <div class="background-overlay"></div>
+
+    <header class="hero">
+        <video class="hero-video" autoplay muted loop playsinline poster="images/hero_bg.png">
+            <source src="ヒーロー.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>マミヨバンド×Yellow Studs<br>2MAN LIVE SHOW</h1>
+            <p class="sub-title">in OGIKUBO TOP BEAT CLUB</p>
+            <div class="date-box">
+                <span class="year">2026</span>
+                <span class="date">3.15</span>
+                <span class="day">SUN</span>
+            </div>
+            <a href="#ticket" class="cta-button">TICKET INFO</a>
+        </div>
+        <div class="scroll-indicator">
+            <span>SCROLL</span>
+            <div class="line"></div>
+        </div>
+    </header>
+
+    <main>
+        <section id="artists" class="artists-section">
+            <h2 class="section-title">ACT</h2>
+            <div class="artist-container">
+                <a href="https://mamiyoband.com/" target="_blank" class="artist-card left">
+                    <div class="artist-image" style="background-image: url('images/mamiyo_band.jpg');"></div>
+                    <div class="artist-info">
+                        <h3>マミヨバンド</h3>
+                        <p>MAMIYO BAND</p>
+                    </div>
+                </a>
+                <div class="vs-badge">VS</div>
+                <a href="https://www.yellowstuds.net/" target="_blank" class="artist-card right">
+                    <div class="artist-image" style="background-image: url('images/yellow_studs.jpg');"></div>
+                    <div class="artist-info">
+                        <h3>Yellow Studs</h3>
+                        <p>イエロースタッズ</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section id="details" class="details-section">
+            <h2 class="section-title">DETAILS</h2>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <span class="label">DATE</span>
+                    <span class="value">2026.3.15 (SUN)</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">TIME</span>
+                    <span class="value">OPEN 11:30 / START 12:00</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">TICKET</span>
+                    <span class="value">ADV ¥4,000 (+1D)</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">PLACE</span>
+                    <span class="value">荻窪TOP BEAT CLUB</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="access" class="access-section">
+            <h2 class="section-title">ACCESS</h2>
+            <div class="map-container">
+                <p class="address">〒167-0033 東京都杉並区清水1-15-11</p>
+                <iframe src="https://maps.google.com/maps?q=Ogikubo+TOP+BEAT+CLUB&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <a href="https://maps.app.goo.gl/pUWSx5M3o2uVKRdr8" target="_blank" class="map-link">Google Mapsで見る</a>
+            </div>
+        </section>
+
+        <section id="ticket" class="ticket-section">
+            <div class="ticket-content">
+                <h2>TICKET</h2>
+                <p>チケット発売情報は近日公開</p>
+                <a href="#" class="ticket-button disabled">COMING SOON</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="tokushoho.html">特定商取引法に基づく表記</a>
+            <a href="contact.html">お問い合わせ</a>
+        </div>
+        <p>&copy; 古事記project株式会社</p>
+    </footer>
+
+    <script>
+        // Simple parallax effect for hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            hero.style.backgroundPositionY = -(scrolled * 0.5) + 'px';
+        });
+    </script>
+</body>
+
+</html>
