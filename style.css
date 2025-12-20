@@ -72,6 +72,47 @@ body {
     letter-spacing: 0.05em;
 }
 
+.logo-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 2vh;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.hero-logo-img {
+    height: auto;
+    max-height: 100px;
+    max-width: 40vw;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
+}
+
+.logo-x {
+    font-family: var(--font-main);
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--accent-color);
+    font-weight: 300;
+    line-height: 1;
+}
+
+.main-title-text {
+    display: block;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .hero-logo-img {
+        max-height: 60px;
+    }
+
+    .logo-title {
+        gap: 10px;
+    }
+}
+
 .sub-title {
     font-size: 1.2rem;
     letter-spacing: 0.3em;
@@ -420,3 +461,417 @@ footer {
         margin-top: -30px;
     }
 }
+
+/* =========================================
+   Ticket Page Styles (Refined)
+   ========================================= */
+
+/* Header & Nav Layout */
+.page-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px 0;
+    width: 100%;
+}
+
+.page-title {
+    margin-bottom: 2rem;
+    text-align: center;
+    font-family: var(--font-main);
+    letter-spacing: 0.1em;
+}
+
+/* Navigation Menu */
+.ticket-nav {
+    width: 100%;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.ticket-nav ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.ticket-nav li {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.ticket-nav li a {
+    text-decoration: none;
+    color: #888;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 10px 15px;
+    position: relative;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.ticket-nav li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.ticket-nav li a:hover {
+    color: var(--accent-color);
+}
+
+.ticket-nav li a:hover::after {
+    width: 80%;
+}
+
+/* SCROLL DOWN Indicator */
+.scroll-down-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+    opacity: 0.8;
+}
+
+.scroll-down {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-color);
+    font-family: var(--font-main);
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    animation: bounce 2s infinite;
+}
+
+.scroll-down i {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Ticket Page Container */
+.content-container.ticket-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 100px;
+}
+
+.citation {
+    display: none;
+}
+
+/* Category Sections */
+.ticket-category-section {
+    width: 100%;
+    max-width: 1300px;
+    /* Increased width to accommodate 4 columns */
+    margin: 0 auto 60px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    scroll-margin-top: 20px;
+    padding: 0 20px;
+    /* Ensure padding on small screens */
+}
+
+.category-header {
+    width: 100%;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+}
+
+.category-header h2 {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    letter-spacing: 0.1em;
+    text-align: left;
+}
+
+/* Desktop Grid Layout (Vertical Header) */
+@media (min-width: 1100px) {
+
+    /* Increased breakpoint for 4 columns */
+    .ticket-category-section {
+        flex-direction: row;
+        align-items: stretch;
+        /* Stretch to align height with grid */
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 20px;
+        padding: 20px;
+        /* Reduced padding from 30px */
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .category-header {
+        width: 80px;
+        /* Reduced width */
+        min-width: 80px;
+        border-bottom: none;
+        border-right: 2px solid var(--accent-color);
+        margin-bottom: 0;
+        padding-bottom: 0;
+        padding-right: 15px;
+        /* Reduced padding */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .category-header h2 {
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+        letter-spacing: 0.3em;
+        font-size: 1.4rem;
+        text-align: center;
+        width: 100%;
+        height: auto;
+        max-height: 100%;
+    }
+}
+
+/* Ticket Cards Grid */
+.ticket-grid {
+    flex-grow: 1;
+    display: grid;
+    /* Default for mobile: 1 column */
+    grid-template-columns: 1fr;
+    gap: 15px;
+    width: 100%;
+}
+
+@media (min-width: 600px) {
+    .ticket-grid {
+        /* Tablet: 2 columns */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1100px) {
+    .ticket-grid {
+        /* Desktop: Force 4 columns */
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.ticket-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    /* Fill grid cell height */
+    min-height: 0;
+}
+
+.ticket-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.ticket-card.vip-card {
+    border-color: var(--accent-color);
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(0, 0, 0, 0.5));
+}
+
+.ticket-card.vip-card::before {
+    content: 'VIP';
+    position: absolute;
+    top: 8px;
+    right: -25px;
+    background: var(--accent-color);
+    color: #000;
+    width: 100px;
+    padding: 2px 0;
+    transform: rotate(45deg);
+    font-weight: bold;
+    font-size: 0.6rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.ticket-icon {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 5px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    filter: drop-shadow(0 0 5px var(--accent-glow));
+}
+
+.ticket-icon .plus {
+    font-size: 1rem;
+    color: #fff;
+    font-weight: bold;
+    opacity: 0.8;
+}
+
+.ticket-name {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    min-height: 2.5em;
+    /* Adjusted for alignment */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+}
+
+.ticket-price {
+    font-family: var(--font-main);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 5px;
+}
+
+.ticket-desc {
+    font-size: 0.75rem;
+    margin-bottom: 10px;
+    color: #ccc;
+    line-height: 1.3;
+    max-width: 95%;
+    flex-grow: 1;
+    /* Push button down */
+}
+
+.ticket-buy-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 8px;
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-family: var(--font-main);
+    letter-spacing: 0.1em;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.ticket-buy-btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+.ticket-buy-btn.main-btn {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #000;
+}
+
+.ticket-buy-btn.main-btn:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+.ticket-buy-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: #555;
+    color: #555;
+    background: transparent;
+}
+
+/* Global Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* SCROLL DOWN Indicator (Fixed & High Visibility) */
+.scroll-down-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    /* Ensure it floats above everything */
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    /* Allow clicks to pass through */
+}
+
+.scroll-down {
+    background: rgba(5, 5, 5, 0.9);
+    /* Strong dark background to block underlying text */
+    border: 1px solid var(--accent-color);
+    /* Gold border for visibility */
+    padding: 10px 20px;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    color: #fff;
+    font-family: var(--font-main);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    animation: bounce 2s infinite;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+    /* Glow effect */
+    backdrop-filter: blur(4px);
+}
+
+.scroll-down i {
+    font-size: 1rem;
+    color: var(--accent-color);
+}
+
+```
