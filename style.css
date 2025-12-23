@@ -372,6 +372,150 @@ section {
     padding-bottom: 5px;
 }
 
+/* After Party Section */
+.after-party-section {
+    background-color: var(--bg-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.after-party-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.after-party-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem;
+    border: 1px solid var(--accent-color);
+    background: rgba(255, 255, 255, 0.02);
+    position: relative;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
+}
+
+.ap-header {
+    margin-bottom: 3rem;
+}
+
+.ap-catch {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 900;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px var(--accent-glow);
+    animation: pulse 2s infinite;
+}
+
+.ap-sub-catch {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-weight: 700;
+}
+
+.ap-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+    border-top: 1px dashed rgba(255, 255, 255, 0.2);
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.ap-info-row {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.ap-label {
+    font-family: var(--font-main);
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+}
+
+.ap-value {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.ap-small {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-left: 10px;
+}
+
+.ap-venue-box {
+    margin-top: 2rem;
+}
+
+.ap-venue-name {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-main);
+}
+
+.ap-address,
+.ap-tel {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #ccc;
+}
+
+.ap-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--accent-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-color);
+    padding-bottom: 2px;
+    transition: all 0.3s ease;
+}
+
+.ap-link:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .ap-info-row {
+        flex-direction: column;
+        gap: 5px;
+        align-items: center;
+    }
+
+    .sp-only {
+        display: block;
+    }
+}
+
 /* Ticket Section */
 .ticket-section {
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('images/hero_bg.png');
@@ -627,46 +771,60 @@ footer {
     text-align: left;
 }
 
-/* Desktop Grid Layout (Vertical Header) */
-@media (min-width: 1100px) {
+/* Accordion Styles */
+.accordion-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, margin-top 0.3s ease;
+}
 
-    /* Increased breakpoint for 4 columns */
-    .ticket-category-section {
-        flex-direction: row;
-        align-items: stretch;
-        /* Stretch to align height with grid */
-        background: rgba(255, 255, 255, 0.02);
-        border-radius: 20px;
-        padding: 20px;
-        /* Reduced padding from 30px */
-        border: 1px solid rgba(255, 255, 255, 0.05);
-    }
+.category-header {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+}
 
-    .category-header {
-        width: 80px;
-        /* Reduced width */
-        min-width: 80px;
-        border-bottom: none;
-        border-right: 2px solid var(--accent-color);
-        margin-bottom: 0;
-        padding-bottom: 0;
-        padding-right: 15px;
-        /* Reduced padding */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+.category-header:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent-color);
+}
 
-    .category-header h2 {
-        writing-mode: vertical-rl;
-        text-orientation: upright;
-        letter-spacing: 0.3em;
-        font-size: 1.4rem;
-        text-align: center;
-        width: 100%;
-        height: auto;
-        max-height: 100%;
-    }
+.category-header h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 0;
+    width: 100%;
+}
+
+.accordion-icon {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    transition: transform 0.4s ease;
+}
+
+.category-header.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.category-header.active {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: var(--accent-color);
+}
+
+/* Ensure section spacing is managed */
+.ticket-category-section {
+    margin-bottom: 20px;
+    /* Reduced margin when collapsed */
+    transition: margin-bottom 0.3s ease;
 }
 
 /* Ticket Cards Grid */
@@ -873,5 +1031,3 @@ html {
     font-size: 1rem;
     color: var(--accent-color);
 }
-
-```
