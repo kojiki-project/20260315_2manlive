@@ -455,6 +455,29 @@ section {
     margin-left: 10px;
 }
 
+.ap-image-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.ap-food-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.ap-food-img:hover {
+    transform: scale(1.05);
+    border-color: var(--accent-color);
+}
+
 .ap-venue-box {
     margin-top: 2rem;
 }
